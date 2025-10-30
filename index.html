@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAAUN DEVNEST LTD - Leading Technology Solutions</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-blue: #5B9FED;
+            --dark-blue: #2563EB;
+            --light-blue: #EBF5FF;
+            --white: #FFFFFF;
+            --gray: #6B7280;
+            --dark-gray: #374151;
+            --light-gray: #F3F4F6;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark-gray);
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--dark-blue) 100%);
+            color: var(--white);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            animation: slideDown 0.5s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo {
+            width: 100px;
+            height: 100px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--white);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 80px;
+            background: linear-gradient(135deg, var(--light-blue) 0%, var(--white) 100%);
+            padding: 8rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, var(--primary-blue) 0%, transparent 70%);
+            border-radius: 50%;
+            top: -150px;
+            right: -150px;
+            animation: pulse 4s ease-in-out infinite;
+            opacity: 0.3;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.2);
+            }
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            color: var(--dark-blue);
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--dark-blue) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--gray);
+            margin-bottom: 2rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--dark-blue) 100%);
+            color: var(--white);
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+        }
+
+        /* Services Section */
+        .services {
+            padding: 6rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--dark-blue);
+            margin-bottom: 3rem;
+            animation: fadeIn 1s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            opacity: 0;
+            animation: slideInUp 0.6s ease-out forwards;
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .service-card:nth-child(1) { animation-delay: 0.1s; }
+        .service-card:nth-child(2) { animation-delay: 0.2s; }
+        .service-card:nth-child(3) { animation-delay: 0.3s; }
+        .service-card:nth-child(4) { animation-delay: 0.4s; }
+        .service-card:nth-child(5) { animation-delay: 0.5s; }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(37, 99, 235, 0.2);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--dark-blue) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .service-card h3 {
+            color: var(--dark-blue);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .service-card p {
+            color: var(--gray);
+        }
+
+        /* About Section */
+        .about {
+            background: var(--light-gray);
+            padding: 6rem 2rem;
+        }
+
+        .about-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text {
+            animation: slideInLeft 1s ease-out;
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .about-text h2 {
+            color: var(--dark-blue);
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-text p {
+            color: var(--gray);
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        .about-image {
+            animation: slideInRight 1s ease-out;
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #1E3A8A 0%, #1E40AF 100%);
+            color: var(--white);
+            padding: 4rem 2rem 2rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1.5rem;
+            font-size: 1.25rem;
+        }
+
+        .footer-section p, .footer-section a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.75rem;
+            transition: all 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: var(--white);
+            transform: translateX(5px);
+        }
+
+        .footer-section a::before {
+            content: '→ ';
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .footer-section a:hover::before {
+            opacity: 1;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: var(--white);
+            color: var(--dark-blue);
+            transform: translateY(-3px);
+        }
+
+        .contact-info {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-icon {
+            color: var(--primary-blue);
+            margin-top: 2px;
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--white);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo-container">
+                <img src="dev_transparent_blue.png" alt="MAAUN DEVNEST Logo" class="logo">
+                <span class="logo-text">MAAUN DEVNEST</span>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1 id="heroTitle"></h1>
+            <p id="heroDescription"></p>
+            <a href="#contact" class="cta-button">Get Started</a>
+        </div>
+    </section>
+
+    <section class="services" id="services">
+        <h2 class="section-title">Our Services</h2>
+        <div class="services-grid" id="servicesGrid"></div>
+    </section>
+
+    <section class="about" id="about">
+        <div class="about-content">
+            <div class="about-text">
+                <h2 id="aboutTitle"></h2>
+                <div id="aboutDescription"></div>
+            </div>
+            <div class="about-image">
+                <img src="dev_transparent_blue.png" alt="MAAUN DEVNEST Logo" style="width: 100%; max-width: 400px; margin: 0 auto; display: block;">
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3 id="companyName"></h3>
+                <p id="companyDescription"></p>
+                <div class="social-links" id="socialLinks"></div>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Services</h3>
+                <div id="footerServices"></div>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Company</h3>
+                <div id="footerCompany"></div>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <div id="contactInfo"></div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p id="copyright"></p>
+            <div class="footer-links" id="legalLinks"></div>
+        </div>
+    </footer>
+
+    <script>
+        // Centralized JSON Data Source
+        const siteData = {
+            company: {
+                name: "MAAUN DEVNEST",
+                fullName: "MAAUN DEVNEST LTD",
+                description: "Leading technology company delivering innovative solutions for digital transformation and business growth.",
+                year: "2024"
+            },
+            hero: {
+                title: "Innovative Technology Solutions",
+                description: "Leading technology company delivering innovative solutions for digital transformation and business growth."
+            },
+            services: [
+                {
+                    icon: "💻",
+                    title: "Software Development",
+                    description: "Custom software solutions tailored to your business needs with cutting-edge technologies."
+                },
+                {
+                    icon: "📱",
+                    title: "Mobile Applications",
+                    description: "Native and cross-platform mobile apps that deliver exceptional user experiences."
+                },
+                {
+                    icon: "☁️",
+                    title: "Cloud Solutions",
+                    description: "Scalable cloud infrastructure and migration services for modern businesses."
+                },
+                {
+                    icon: "🔒",
+                    title: "Cybersecurity",
+                    description: "Comprehensive security solutions to protect your digital assets and data."
+                },
+                {
+                    icon: "💡",
+                    title: "IT Consulting",
+                    description: "Strategic technology consulting to drive innovation and business growth."
+                }
+            ],
+            about: {
+                title: "About MAAUN DEVNEST",
+                description: [
+                    "At MAAUN DEVNEST LTD, we are passionate about leveraging technology to solve complex business challenges. Our team of expert developers, designers, and consultants work together to deliver solutions that drive real business value.",
+                    "With years of experience in the technology industry, we've helped numerous organizations transform their operations through innovative digital solutions. We pride ourselves on our commitment to quality, innovation, and customer satisfaction.",
+                    "Our approach combines technical excellence with deep business understanding, ensuring that every solution we deliver not only meets technical requirements but also achieves strategic business objectives."
+                ]
+            },
+            contact: {
+                address: "MAAUN INNOVATION HUB ",
+                email: "abubakarboyi241@gmail.com",
+                phone: "+234 912 219 6368",
+                businessHours: {
+                    weekdays: "Mon - Fri: 9:00 AM - 6:00 PM",
+                    weekend: "Sat - Sun: Closed"
+                }
+            },
+            social: [
+                { name: "Facebook", icon: "f", url: "#" },
+                { name: "Twitter", icon: "𝕏", url: "#" },
+                { name: "GitHub", icon: "⚡", url: "#" },
+                { name: "Linkedin", icon: "⚫", url: "#" }
+            ],
+            companyPages: [
+                { name: "About Us", url: "#about" },
+                { name: "Our Team", url: "#team" },
+                { name: "Careers", url: "#careers" },
+                { name: "Portfolio", url: "#portfolio" },
+                { name: "Blog", url: "#blog" }
+            ],
+            legalPages: [
+                { name: "Privacy Policy", url: "#privacy" },
+                { name: "Terms of Service", url: "#terms" },
+                { name: "Cookie Policy", url: "#cookies" }
+            ]
+        };
+
+        // Populate Hero Section
+        document.getElementById('heroTitle').textContent = siteData.hero.title;
+        document.getElementById('heroDescription').textContent = siteData.hero.description;
+
+        // Populate Services
+        const servicesGrid = document.getElementById('servicesGrid');
+        siteData.services.forEach(service => {
+            const card = document.createElement('div');
+            card.className = 'service-card';
+            card.innerHTML = `
+                <div class="service-icon">${service.icon}</div>
+                <h3>${service.title}</h3>
+                <p>${service.description}</p>
+            `;
+            servicesGrid.appendChild(card);
+        });
+
+        // Populate About Section
+        document.getElementById('aboutTitle').textContent = siteData.about.title;
+        const aboutDesc = document.getElementById('aboutDescription');
+        siteData.about.description.forEach(paragraph => {
+            const p = document.createElement('p');
+            p.textContent = paragraph;
+            aboutDesc.appendChild(p);
+        });
+
+        // Populate Footer - Company Section
+        document.getElementById('companyName').textContent = siteData.company.name;
+        document.getElementById('companyDescription').textContent = siteData.company.description;
+
+        // Social Links
+        const socialLinks = document.getElementById('socialLinks');
+        siteData.social.forEach(social => {
+            const link = document.createElement('a');
+            link.href = social.url;
+            link.textContent = social.icon;
+            link.title = social.name;
+            socialLinks.appendChild(link);
+        });
+
+        // Footer Services
+        const footerServices = document.getElementById('footerServices');
+        siteData.services.forEach(service => {
+            const link = document.createElement('a');
+            link.href = '#services';
+            link.textContent = service.title;
+            footerServices.appendChild(link);
+        });
+
+        // Footer Company Pages
+        const footerCompany = document.getElementById('footerCompany');
+        siteData.companyPages.forEach(page => {
+            const link = document.createElement('a');
+            link.href = page.url;
+            link.textContent = page.name;
+            footerCompany.appendChild(link);
+        });
+
+        // Contact Info
+        const contactInfo = document.getElementById('contactInfo');
+        contactInfo.innerHTML = `
+            <div class="contact-info">
+                <span class="contact-icon">📍</span>
+                <span>${siteData.contact.address}</span>
+            </div>
+            <div class="contact-info">
+                <span class="contact-icon">✉️</span>
+                <span>${siteData.contact.email}</span>
+            </div>
+            <div class="contact-info">
+                <span class="contact-icon">📞</span>
+                <span>${siteData.contact.phone}</span>
+            </div>
+            <div style="margin-top: 1rem;">
+                <strong>Business Hours</strong>
+                <p style="margin-top: 0.5rem;">${siteData.contact.businessHours.weekdays}</p>
+                <p>${siteData.contact.businessHours.weekend}</p>
+            </div>
+        `;
+
+        // Copyright
+        document.getElementById('copyright').textContent = `© ${siteData.company.year} ${siteData.company.fullName}. All rights reserved.`;
+
+        // Legal Links
+        const legalLinks = document.getElementById('legalLinks');
+        siteData.legalPages.forEach(page => {
+            const link = document.createElement('a');
+            link.href = page.url;
+            link.textContent = page.name;
+            legalLinks.appendChild(link);
+        });
+
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.service-card').forEach(card => {
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
